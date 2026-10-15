@@ -722,12 +722,13 @@ abstract class AbstractFrameDecorator extends Frame
             $child->get_original_style()->margin_top = 0;
         }
 
+        $child->reset();
+
         // Add $child and all following siblings to the new split node
         $iter = $child;
         while ($iter) {
             $frame = $iter;
             $iter = $iter->get_next_sibling();
-            $frame->reset();
             $split->append_child($frame);
         }
 
